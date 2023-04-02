@@ -1,0 +1,89 @@
+.signup-container {
+    background-color: #1E1F26;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .signup-form-container {
+    background-color: #FFFFFF;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .signup-form-container h2 {
+    margin-top: 0;
+  }
+  
+  .signup-form-container p {
+    margin-top: 20px;
+  }
+  
+  .signup-form-container form {
+    margin-top: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    outline: none;
+  }
+  
+  button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #007BFF;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0069D9;
+  }
+  
+  .signup-separator {
+    margin: 20px 0;
+    text-align: center;
+  }
+  
+  .signup-separator span {
+    display: inline-block;
+    padding: 0 10px;
+    background-color: #FFFFFF;
+    font-size: 14px;
+    font-weight: bold;
+    color: #999999;
+  }
+  
+  .signup-social {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .signup-social-link {
+    display: inline-block;
+    margin: 0 10
+  }  
