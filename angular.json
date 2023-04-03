@@ -58,6 +58,10 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "port": 4200,
+            "host": "0.0.0.0"
+          },
           "configurations": {
             "production": {
               "browserTarget": "CodeAndo:build:production"
@@ -94,5 +98,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "cba9f99b-fc63-4e2d-a90f-b6ea64822ef4"
   }
 }
