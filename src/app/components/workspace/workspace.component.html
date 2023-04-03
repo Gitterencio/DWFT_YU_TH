@@ -1,0 +1,86 @@
+<div class="container-fluid">
+<nav class="navbar navbar-expand-lg navbar bg-dark" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand nav-link" routerLink="">
+            <img src="assets/img/CA.ico" alt="Logo" width="60" height="60" class="d-inline-block align-text-center">
+          </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link">
+                  <i class="fas fa-light fa-play" ></i> Run
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">
+                  <i class="fas fa-light fa-floppy-disk" ></i> Guardar
+                </a>
+              </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/workspace">
+              <i class="fas fa-code fa-lg" routerLink="/workspace" ></i> Snippet
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">
+              <i class="fas fa-users fa-lg" ></i> Grupos
+            </a>
+          </li>
+        </ul>
+        <div class="dropdown pb-2" style="margin-right: 15px;" >
+            <a href ="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false" >
+                <img src="assets/img/user.png" alt="hugenerd"  width="30" height="30" class="rounded-circle">
+                <span class="d-none d-sm-inline mx-1" >Nombre Usuario</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                <li><a class="dropdown-item" href="#">Nuevo Proyecto...</a></li>
+                <li><a class="dropdown-item" href="#">Configuraciones</a></li>
+                <li><a class="dropdown-item" routerLink="/perfil">Profile</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Sign out</a></li>
+                <hr>
+            </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-3 col-lg-1 px-4 bg-dark">
+        <div class="sidebar-icons-top">
+          <i class="fas fa-duotone fa-folder-open"></i>
+          <i class="fas fa-light fa-boxes-stacked"></i>
+        </div>  
+        <div class="sidebar-icons-bottom">
+          <i class="fas fa-duotone fa-cloud-arrow-down"></i>
+          <i class="fas fa-duotone fa-gear"></i>
+        </div>
+      </div>
+      <div class="col-md-9 col-lg-10">
+        <div class="workspace col py-0 px-9">
+          <div class="editor-container">
+            <div class="editor-header">HTML</div>
+            <textarea class="editor" id="html-editor"></textarea>
+          </div>
+          <div class="editor-container">
+            <div class="editor-header">CSS</div>
+            <textarea class="editor" id="css-editor"></textarea>
+          </div>
+          <div class="editor-container">
+            <div class="editor-header">JavaScript</div>
+            <textarea class="editor" id="js-editor"></textarea>
+          </div>
+          <div class="preview-container">
+            <div class="editor-header">Preview</div>
+            <iframe class="preview" id="preview"></iframe>
+          </div>
+        </div>   
+      </div>
+    </div>
+  </div>   
+</div> 
