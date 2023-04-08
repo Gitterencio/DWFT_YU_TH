@@ -11,6 +11,12 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { WorkspaceComponent } from './components/workspace/workspace.component';
+import { TestComponent } from './components/test/test.component';
+
+//INTEGRANCION NESTJS BACKEND
+import {HttpClientModule} from '@angular/common/http';
+//FORMULARIO REACTIVO
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,11 +28,17 @@ import { WorkspaceComponent } from './components/workspace/workspace.component';
     SignInComponent,
     SignUpComponent,
     PerfilComponent,
-    WorkspaceComponent
+    WorkspaceComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+        //INTEGRANCION EXPRESS BACKEND
+        HttpClientModule,
+        //FORMULARIO REACTIVO
+        FormsModule,
+        ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

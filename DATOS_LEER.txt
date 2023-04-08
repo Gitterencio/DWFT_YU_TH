@@ -1,0 +1,18 @@
+REPOSITORIO DE TIPOS DE DATOS
+ACTUALIZAR
+npm update dw-data-types
+
+
+import {CreateUserDTO,LoginIdUserDTO} from 'dw-data-types/dto/users.dto';
+import {Users} from 'dw-data-types/interfaces/users.interface';
+
+MODELO DE PRUABA DE CONEXION
+ng g c components/test
+SERVICIOS
+ng g s services/nestBackend
+ng g s services/socketWebServer
+ng g s services/localStorage
+
+
+SOCKET CLIENT
+npm i socket.io-client
