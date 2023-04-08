@@ -9,9 +9,9 @@ import { Observable} from 'rxjs';
 export class NestBackendService {
   hostname = window.location.hostname; 
   devURL:string = `http://${this.hostname}:3000`;
-  productURL:string = ``;
+  productURL:string = `https://dwbkyuth-production.up.railway.app`;
 
-  base_url:string= this.devURL;
+  base_url:string= this.productURL;
 
   constructor(private http:HttpClient) { }
 
