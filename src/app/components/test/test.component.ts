@@ -33,9 +33,25 @@ export class TestComponent {
     protected _localstorage: LocalStorageService) { }
 
     ngOnInit(): void {
+      
+      
       this._socketTest();
       this._getNest();
       this.OnsocketListen();
+
+      this.goJoinRoomProject();
+      this.onSocketResponse();
+
+    }
+
+    goJoinRoomProject(){
+      this._socket.joinRoomProject('IDASADASDSADASDS');
+    };
+
+    onSocketResponse(){
+      this._socket.socketResponse.subscribe(res =>{
+        console.log(res)
+      });
     }
   
     _socketTest(){
