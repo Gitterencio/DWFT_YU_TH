@@ -8,6 +8,9 @@ import { io } from 'socket.io-client';
 export class SocketWebServerService {
   callback : EventEmitter<any> = new EventEmitter();
   socketResponse :EventEmitter<any> = new EventEmitter();
+
+  htmlResponse :EventEmitter<any> = new EventEmitter();
+
   hostname = window.location.hostname;
   
   devURL:string = `http://${this.hostname}:3000`;
@@ -26,6 +29,8 @@ export class SocketWebServerService {
     this.connection();
     this.OnJoinedRoomProject();
     this.OnsocketNewClient();
+
+    this.onEditedHTMLProject();
   }
 
   connection(){
@@ -41,6 +46,13 @@ export class SocketWebServerService {
 
   OnJoinedRoomProject(){
     this.io.on("JoinedRoomProject", res => this.socketResponse.emit(res));
+  }
+
+  goEditingHTMLProject(idRoom:string,html:string){
+    this.io.emit("EditingHTMLProject",{idRoom,html});
+  }
+  onEditedHTMLProject(){
+    this.io.on("EditedHTMLProject", res => this.htmlResponse.emit(res));
   }
 
   _socketNewApplicationClient(){

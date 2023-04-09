@@ -26,6 +26,14 @@ export class TestComponent {
     password:"12323"
   };
 
+  UserLog = {
+    user: '',
+    asesor: false,
+    pass: ''
+  }
+
+  html_edit:string = '';
+
   constructor(
     protected _socket: SocketWebServerService, 
     protected _nestserver: NestBackendService, 
@@ -41,6 +49,8 @@ export class TestComponent {
 
       this.goJoinRoomProject();
       this.onSocketResponse();
+
+      this.on_html_edited();
 
     }
 
@@ -80,6 +90,22 @@ export class TestComponent {
         console.log(data.mensaje)
         this.datos.ab_mensaje = data.mensaje;
       })
+    }
+
+    cambio(){
+      console.log(this.UserLog)
+    }
+
+    html_editing(){
+      console.log('EDITING HTML')
+      this._socket.goEditingHTMLProject('IDASADASDSADASDS',this.html_edit)
+    }
+
+    on_html_edited(){
+      this._socket.htmlResponse.subscribe(html =>{
+        this.html_edit = html
+        document.getElementById('general')?.setAttribute('srcdoc',html);
+      });
     }
   
   }
