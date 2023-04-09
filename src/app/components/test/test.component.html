@@ -1,4 +1,28 @@
-<p>test works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>test works!</p>
 <h1>{{ datos.mensaje }}</h1>
 <h1>{{ datos.b_mensaje }}</h1>
 <h1>{{ datos.ab_mensaje }}</h1>
+
+<input type="text" class="form-control " [(ngModel)]="UserLog.user" (ngModelChange)="cambio()"  placeholder="Username" >
+
+<h1>{{ UserLog.user }}</h1>
+
+<div class="row">
+<div class="col-5" style="text-align: center;" >
+    <textarea name="" id="" cols="60" [(ngModel)]="html_edit" (ngModelChange)="html_editing()" rows="20"></textarea>
+</div>
+<div class="col-5"  style="text-align: center; border: solid 2px black;"  >
+   <iframe id="general" srcdoc="<h1> HOLA</h1>" frameborder="0"></iframe>
+</div>
+</div>
+</body>
+</html>
