@@ -50,11 +50,8 @@ export class TestComponent {
       this.goJoinRoomProject();
       this.onSocketResponse();
 
-<<<<<<< HEAD
       this.on_html_edited();
 
-=======
->>>>>>> a20b171 (join room)
     }
 
     goJoinRoomProject(){
