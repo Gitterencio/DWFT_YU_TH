@@ -98,11 +98,13 @@ export class TestComponent {
 
     html_editing(){
       console.log('EDITING HTML')
+      document.getElementById('general')?.setAttribute('srcdoc',this.html_edit);
       this._socket.goEditingHTMLProject('IDASADASDSADASDS',this.html_edit)
     }
 
     on_html_edited(){
       this._socket.htmlResponse.subscribe(html =>{
+        console.log('probar broadcast')
         this.html_edit = html
         document.getElementById('general')?.setAttribute('srcdoc',html);
       });
