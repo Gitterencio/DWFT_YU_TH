@@ -2,6 +2,8 @@ REPOSITORIO DE TIPOS DE DATOS
 ACTUALIZAR
 npm update dw-data-types
 
+Nueva
+npm install --save sweetalert2
 
 import {CreateUserDTO,LoginIdUserDTO} from 'dw-data-types/dto/users.dto';
 import {Users} from 'dw-data-types/interfaces/users.interface';
