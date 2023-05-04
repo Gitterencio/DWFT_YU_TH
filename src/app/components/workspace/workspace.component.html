@@ -65,19 +65,19 @@
         <div class="workspace col py-0 px-9">
           <div class="editor-container">
             <div class="editor-header">HTML</div>
-            <textarea class="editor" id="html-editor"></textarea>
+            <textarea class="editor" [(ngModel)]="html_edit" (ngModelChange)="onChangeCode()" id="html-editor"></textarea>
           </div>
           <div class="editor-container">
             <div class="editor-header">CSS</div>
-            <textarea class="editor" id="css-editor"></textarea>
+            <textarea class="editor" [(ngModel)]="css_edit" (ngModelChange)="onChangeCode()"  id="css-editor"></textarea>
           </div>
           <div class="editor-container">
             <div class="editor-header">JavaScript</div>
-            <textarea class="editor" id="js-editor"></textarea>
+            <textarea class="editor" [(ngModel)]="js_edit" (ngModelChange)="onChangeCode()"  id="js-editor"></textarea>
           </div>
           <div class="preview-container">
             <div class="editor-header">Preview</div>
-            <iframe class="preview" id="preview"></iframe>
+            <iframe class="preview" id="preview" ></iframe>
           </div>
         </div>   
       </div>
