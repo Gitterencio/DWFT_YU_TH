@@ -77,38 +77,44 @@
                 </ul>
               </div>      
               <div class="sidebar-footer">
-                <a href="#" class="d-flex align-items-center text-white text-decoration-none">
-                  <img src="assets/img/añadir.png" alt="hugenerd" width="45" height="45">
+                <div id="nuevoProyecto-btn" class="d-flex align-items-center text-white text-decoration-none">
+                  <img (click)="openNewProyectoModal()" src="assets/img/añadir.png" alt="hugenerd" width="45" height="45">
                   <span class="d-none d-sm-inline mx-1">Añadir nuevo proyecto.</span>
-                </a>
+                </div>
               </div>          
         </div> 
         
         <div class="projects col py-3">
             
 <div class="projects">
-  <div class="project-card">
-    <h3>Proyecto 1</h3>
+  <div class="project-card" *ngFor="let proyecto of proyectosList">
+    <h3>{{proyecto.name}}</h3>
     <p>Descripción del proyecto 1.</p>
-    <a href="#">Ver más</a>
-  </div>
-  <div class="project-card">
-    <h3>Proyecto 2</h3>
-    <p>Descripción del proyecto 2.</p>
-    <a href="#">Ver más</a>
-  </div>
-  <div class="project-card">
-    <h3>Snippet nav</h3>
-    <p>Descripción del Snippet.</p>
-    <a href="#">Ver más</a>
-  </div>
-  <div class="project-card">
-    <h3>Snippet sidebar</h3>
-    <p>Descripcion del Snippet.</p>
-    <a href="#">Ver más</a>
+    <button (click)="goToScriptProyecto(proyecto._id)">Go</button>
   </div>
 </div>
 
           </div>      
     </div>
 </div>
+
+
+<!-- Modal -->
+<ng-template #newProyectoModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title font-weight-bolder " > Nuevo Proyecto</h4>
+    <button type="button" class="close btn" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form #newProyectoForm="ngForm" (ngSubmit)="onSubmitNewProyecto(newProyectoForm)">
+      <div class="form-group">
+        <input placeholder="Nombre del proyecto" type="text" id="name" name="name" ngModel required #name="ngModel">
+      </div>
+
+      <button type="submit">Crear</button>
+    </form>
+  </div>
+  
+</ng-template>

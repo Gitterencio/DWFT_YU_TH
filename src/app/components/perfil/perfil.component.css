@@ -76,7 +76,7 @@ i {
     margin-bottom: 20px;
   }
   
-  .project-card a {
+  .project-card button {
     background-color: #343A40;
     color: #FFFFFF;
     text-decoration: none;
@@ -85,8 +85,62 @@ i {
     display: inline-block;
   }
   
-  .project-card a:hover {
+  .project-card button:hover {
     background-color: #FFFFFF;
     color: #343A40;
   }
   
+
+  #nuevoProyecto-btn img{
+    cursor: pointer;
+  }
+
+  #nuevoProyecto-btn img:hover{
+    background: #343A40;
+    border-radius: 50%;   
+  }
+
+  .modal-header{
+    background-color: #343A40;
+    color: #FFFFFF;
+  }
+
+
+
+
+  .form-group {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    outline: none;
+    
+  }
+  
+  .form-group input::placeholder{
+    text-align: center;
+  }
+  button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #343A40;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button[type="submit"]:hover {
+    background-color:  #1f2225;
+  }
