@@ -138,3 +138,10 @@ i {
     border: none;
   }
   
+  .nav-link{
+    cursor: pointer;
+  }
+
+  .nav-link:hover{
+    background-color:  #1f2225;
+  }

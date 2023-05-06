@@ -22,6 +22,10 @@ export class PerfilComponent {
 
   @ViewChild ('newProyectoModal') newProyectoModal:any;
 
+  verProyectos:Boolean = false
+  verMisInvitaciones:Boolean = false
+  verInvitacionesProyectos:Boolean = false
+
   proyectosList?:Proyectos[]
 
   ngOnInit(): void {
@@ -29,16 +33,48 @@ export class PerfilComponent {
     this.getUserProyectos();
   }
 
+  ocultarListas(){
+    this.verProyectos = false
+    this.verMisInvitaciones = false
+    this.verInvitacionesProyectos = false
+  }
+
+  getMisInvitaciones(){
+    this.ocultarListas();
+    this.verMisInvitaciones = true
+  }
+
+  getInvitacionesProyectos(){
+    this.ocultarListas();
+    this.verInvitacionesProyectos = true
+  }
 
   getUserProyectos(){
+    this.ocultarListas();
+
+    this.verProyectos=true;
     this._nestserver.getUserProyectos().subscribe(data =>{
-      
       console.log(data.message)
+      
       this.proyectosList = data.proyectos
-      console.log(data.message,this.proyectosList)
+      
 
     },err => {
        console.log(err.error)
+
+       if(err.error.statusCode === 401){
+       Swal.fire(
+        'Atencion!',
+        err.error.message ,
+        'error',
+      ).then((result) => {
+        if (result.isConfirmed) {
+          this._localstorage._clearLocalStorege();
+          this._router.navigate(['sign-in'])
+        }
+      });
+
+    }
        
     }) 
 
@@ -90,6 +126,12 @@ export class PerfilComponent {
       }) 
   
     }
+  }
+
+  signOut(){
+ 
+    this._localstorage._clearLocalStorege()
+    this._router.navigate(['sign-in'])
   }
 
 }

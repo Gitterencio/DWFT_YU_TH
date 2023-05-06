@@ -5,6 +5,7 @@ import { Observable} from 'rxjs';
 
 import { LocalStorageService } from './local-storage.service';
 import { CreateUserDTO, LoginEmailUserDTO } from 'dw-data-types/dto/users.dto';
+import { UpdateProyectoDTO} from 'dw-data-types//dto/proyectos.dto';
 
 @Injectable({
   providedIn: 'root'
@@ -59,6 +60,16 @@ export class NestBackendService {
     return this.http.get(this.base_url+'/proyectos/'+proyectoId,{headers});
   
   }
+
+  saveEditingProyecto(body:UpdateProyectoDTO):Observable<any>{
+
+    const token =this.localstorage._getDataLocalStorege('access_token') 
+    const proyectoId = this.localstorage._getStringLocalStorege('proyectoId')
+    var headers= {authorization:`Yuno ${token}`}
+    return this.http.put(this.base_url+'/proyectos',body,{headers});
+  
+  }
+
   f_get():Observable<any>{
 
     return this.http.get(this.base_url+'/get')

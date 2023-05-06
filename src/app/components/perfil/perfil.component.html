@@ -30,13 +30,13 @@
                 <span class="d-none d-sm-inline mx-1" >Nombre Usuario</span>
             </a>
             <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                <li><a class="dropdown-item" href="#">Nuevo Proyecto...</a></li>
+                <li><a class="dropdown-item" (click)="openNewProyectoModal()">Nuevo Proyecto...</a></li>
                 <li><a class="dropdown-item" href="#">Configuraciones</a></li>
                 <li><a class="dropdown-item" routerLink="/perfil">Profile</a></li>
                 <li>
                     <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="#">Sign out</a></li>
+                <li><a class="dropdown-item" (click)="signOut()">Sign out</a></li>
                 <hr>
             </ul>
         </div>
@@ -55,12 +55,27 @@
               <div class="sidebar-menu">
                 <ul class="sidebar-list">
                   <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
+                    <a  (click)="getUserProyectos()" class="sidebar-link">
                       <i class="bi bi-list-task"></i> <span class="sidebar-text">Todos tus proyectos</span>
                     </a>
                   </li>
+                  <li  *ngIf="!verMisInvitaciones && !verInvitacionesProyectos"  class="sidebar-item">
+                    <a (click)="getMisInvitaciones()" class="sidebar-link">
+                      <i class="bi bi-code"></i> <span class="sidebar-text">Invitaciones</span>
+                    </a>
+                  </li>
+                  <li  *ngIf="verMisInvitaciones || verInvitacionesProyectos"  class="sidebar-item">
+                    <a (click)="getMisInvitaciones()" class="sidebar-link">
+                      <i class="bi bi-code"></i> <span class="sidebar-text">Mis Invitaciones</span>
+                    </a>
+                  </li>
+                  <li   *ngIf="verMisInvitaciones || verInvitacionesProyectos"  class="sidebar-item">
+                    <a (click)="getInvitacionesProyectos()" class="sidebar-link">
+                      <i class="bi bi-code"></i> <span class="sidebar-text">Invitaciones A Proyectos</span>
+                    </a>
+                  </li>
                   <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
+                    <a  class="sidebar-link">
                       <i class="bi bi-code"></i> <span class="sidebar-text">Snippets</span>
                     </a>
                   </li>
@@ -77,16 +92,22 @@
                 </ul>
               </div>      
               <div class="sidebar-footer">
-                <div id="nuevoProyecto-btn" class="d-flex align-items-center text-white text-decoration-none">
+                <div  id="nuevoProyecto-btn" class="d-flex align-items-center text-white text-decoration-none">
+                 <div  *ngIf="verProyectos">
                   <img (click)="openNewProyectoModal()" src="assets/img/añadir.png" alt="hugenerd" width="45" height="45">
                   <span class="d-none d-sm-inline mx-1">Añadir nuevo proyecto.</span>
+                 </div>
+                 <div  *ngIf="verMisInvitaciones">
+                  <img (click)="openNewProyectoModal()" src="assets/img/añadir.png" alt="hugenerd" width="45" height="45">
+                  <span class="d-none d-sm-inline mx-1">Añadir nueva Invitacion</span>
+                 </div>
                 </div>
               </div>          
         </div> 
         
         <div class="projects col py-3">
             
-<div class="projects">
+<div class="projects" *ngIf="verProyectos" >
   <div class="project-card" *ngFor="let proyecto of proyectosList">
     <h3>{{proyecto.name}}</h3>
     <p>Descripción del proyecto 1.</p>

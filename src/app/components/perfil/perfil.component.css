@@ -144,3 +144,7 @@ i {
   button[type="submit"]:hover {
     background-color:  #1f2225;
   }
+
+  .sidebar-menu a {
+    cursor: pointer;
+  }

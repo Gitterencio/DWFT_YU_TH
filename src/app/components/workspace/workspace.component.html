@@ -15,7 +15,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link">
+                <a class="nav-link" (click)="saveEditingProyecto()">
                   <i class="fas fa-light fa-floppy-disk" ></i> Guardar
                 </a>
               </li>
@@ -42,7 +42,7 @@
                 <li>
                     <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="#">Sign out</a></li>
+                <li><a class="dropdown-item" (click)="signOut()">Sign out</a></li>
                 <hr>
             </ul>
         </div>
@@ -62,18 +62,18 @@
         </div>
       </div>
       <div class="col-md-9 col-lg-10">
-        <div class="workspace col py-0 px-9">
+        <div class="workspace col py-0 px-9" *ngIf="editingProyecto !== undefined">
           <div class="editor-container">
             <div class="editor-header">HTML</div>
-            <textarea class="editor" [(ngModel)]="html_edit" (ngModelChange)="onChangeCode()" id="html-editor"></textarea>
+            <textarea class="editor" [(ngModel)]="editingProyecto.html_text" (ngModelChange)="onChangeCodeHTML()" id="html-editor"></textarea>
           </div>
           <div class="editor-container">
             <div class="editor-header">CSS</div>
-            <textarea class="editor" [(ngModel)]="css_edit" (ngModelChange)="onChangeCode()"  id="css-editor"></textarea>
+            <textarea class="editor" [(ngModel)]="editingProyecto.css_text" (ngModelChange)="onChangeCodeCSS()"  id="css-editor"></textarea>
           </div>
           <div class="editor-container">
             <div class="editor-header">JavaScript</div>
-            <textarea class="editor" [(ngModel)]="js_edit" (ngModelChange)="onChangeCode()"  id="js-editor"></textarea>
+            <textarea class="editor" [(ngModel)]="editingProyecto.js_text" (ngModelChange)="onChangeCodeJS()"  id="js-editor"></textarea>
           </div>
           <div class="preview-container">
             <div class="editor-header">Preview</div>
