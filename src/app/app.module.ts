@@ -13,10 +13,16 @@ import { PerfilComponent } from './components/perfil/perfil.component';
 import { WorkspaceComponent } from './components/workspace/workspace.component';
 import { TestComponent } from './components/test/test.component';
 
+
+
 //INTEGRANCION NESTJS BACKEND
 import {HttpClientModule} from '@angular/common/http';
 //FORMULARIO REACTIVO
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavwsComponent } from './components/navws/navws.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +35,9 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms';
     SignUpComponent,
     PerfilComponent,
     WorkspaceComponent,
-    TestComponent
+    TestComponent,
+    NavwsComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +46,8 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms';
         HttpClientModule,
         //FORMULARIO REACTIVO
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

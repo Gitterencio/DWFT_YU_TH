@@ -11,14 +11,20 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^15.2.0",
+    "@angular/cdk": "^15.2.9",
     "@angular/common": "^15.2.0",
     "@angular/compiler": "^15.2.0",
-    "@angular/core": "^15.2.0",
+    "@angular/core": "^15.0.0",
     "@angular/forms": "^15.2.0",
+    "@angular/material": "^15.2.9",
     "@angular/platform-browser": "^15.2.0",
     "@angular/platform-browser-dynamic": "^15.2.0",
     "@angular/router": "^15.2.0",
+<<<<<<< Updated upstream
     "@ng-bootstrap/ng-bootstrap": "^14.1.1",
+=======
+    "codemirror": "^6.0.1",
+>>>>>>> Stashed changes
     "dw-data-types": "git+https://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:x-oauth-basic@github.com/Gitterencio/DWDATATYPES_DTO_INTRFC#main",
     "rxjs": "~7.8.0",
     "socket.io-client": "^4.6.1",
@@ -30,7 +36,11 @@
     "@angular-devkit/build-angular": "^15.2.4",
     "@angular/cli": "~15.2.4",
     "@angular/compiler-cli": "^15.2.0",
+<<<<<<< Updated upstream
     "@angular/localize": "^15.2.5",
+=======
+    "@types/codemirror": "^5.60.7",
+>>>>>>> Stashed changes
     "@types/jasmine": "~4.3.0",
     "jasmine-core": "~4.5.0",
     "karma": "~6.4.0",

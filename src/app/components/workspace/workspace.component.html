@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <div class="container-fluid">
 <nav class="navbar navbar-expand-lg navbar bg-dark" data-bs-theme="dark">
     <div class="container-fluid">
@@ -52,6 +53,13 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-3 col-lg-1 px-4 bg-dark">
+=======
+<app-navws></app-navws>
+<div class="container-fluid" style="height: 100vh;">
+    <div class="row" style="height: 100%;">
+      <!-- Sidebar Nav - Primera columna -->
+      <div class="col-md-3">
+>>>>>>> Stashed changes
         <div class="sidebar-icons-top">
           <i class="fas fa-duotone fa-folder-open"></i>
           <i class="fas fa-light fa-boxes-stacked"></i>
@@ -61,6 +69,7 @@
           <i class="fas fa-duotone fa-gear"></i>
         </div>
       </div>
+<<<<<<< Updated upstream
       <div class="col-md-9 col-lg-10">
         <div class="workspace col py-0 px-9" *ngIf="editingProyecto !== undefined">
           <div class="editor-container">
@@ -74,14 +83,46 @@
           <div class="editor-container">
             <div class="editor-header">JavaScript</div>
             <textarea class="editor" [(ngModel)]="editingProyecto.js_text" (ngModelChange)="onChangeCodeJS()"  id="js-editor"></textarea>
+=======
+  
+      <!-- Área de trabajo - Segunda columna -->
+      <div class="col-md-9 d-flex flex-column" style="height: 100%;">
+        <div class="row" style="height: 50%;">
+          <div class="col-md-6">
+            <!-- HTML Editor -->
+            <div class="editor-container h-100">
+              <div class="editor-header">HTML</div>
+              <textarea class="editor" [(ngModel)]="html_edit" (ngModelChange)="onChangeCode()" id="html-editor"></textarea>
+            </div>
           </div>
-          <div class="preview-container">
-            <div class="editor-header">Preview</div>
-            <iframe class="preview" id="preview" ></iframe>
+          <div class="col-md-6">
+            <!-- CSS Editor -->
+            <div class="editor-container h-100">
+              <div class="editor-header">CSS</div>
+              <textarea class="editor" [(ngModel)]="css_edit" (ngModelChange)="onChangeCode()" id="css-editor"></textarea>
+            </div>
           </div>
-        </div>   
+        </div>
+        <div class="row" style="height: 48%;">
+          <div class="col-md-6">
+            <!-- JavaScript Editor -->
+            <div class="editor-container h-100">
+              <div class="editor-header">JavaScript</div>
+              <textarea class="editor" [(ngModel)]="js_edit" (ngModelChange)="onChangeCode()" id="js-editor"></textarea>
+            </div>
+>>>>>>> Stashed changes
+          </div>
+          <div class="col-md-6">
+            <!-- Preview -->
+            <div class="preview-container h-100">
+              <div class="editor-header">Preview</div>
+              <iframe class="preview" id="preview"></iframe>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+<<<<<<< Updated upstream
   </div>   
 </div>
 
@@ -93,3 +134,7 @@
             <textarea class="editor" [(ngModel)]="editingProyecto.html_text" (ngModelChange)="onChangeCode()" id="html-editor"></textarea>
           </div>
 -->
+=======
+  </div>
+  
+>>>>>>> Stashed changes
