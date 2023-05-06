@@ -123,6 +123,17 @@ i {
     outline: none;
     
   }
+
+  .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #7a7b7d;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    outline: none;
+    
+  }
   
   .form-group input::placeholder{
     text-align: center;

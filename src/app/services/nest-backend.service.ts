@@ -5,8 +5,8 @@ import { Observable} from 'rxjs';
 
 import { LocalStorageService } from './local-storage.service';
 import { CreateUserDTO, LoginEmailUserDTO } from 'dw-data-types/dto/users.dto';
-import { UpdateProyectoDTO} from 'dw-data-types//dto/proyectos.dto';
-
+import { UpdateProyectoDTO} from 'dw-data-types/dto/proyectos.dto';
+import {CreateInvitacionDTO, UpdateEstadoInvitacionDTO} from 'dw-data-types/dto/invitaciones.dto';
 @Injectable({
   providedIn: 'root'
 })
@@ -70,6 +70,40 @@ export class NestBackendService {
   
   }
 
+  //invitaciones
+  createNewInvitacion(body:CreateInvitacionDTO):Observable<any>{
+
+    const token =this.localstorage._getDataLocalStorege('access_token') 
+    var headers= {authorization:`Yuno ${token}`}
+
+    return this.http.post(this.base_url+'/invitaciones',body,{headers});
+  
+  }
+
+  
+  getUserInvitaciones():Observable<any>{
+
+    const token =this.localstorage._getDataLocalStorege('access_token') 
+    var headers= {authorization:`Yuno ${token}`}
+    return this.http.get(this.base_url+'/invitaciones/user/invitaciones',{headers});
+  
+  }
+
+  getInvitadoInvitaciones():Observable<any>{
+
+    const token =this.localstorage._getDataLocalStorege('access_token') 
+    var headers= {authorization:`Yuno ${token}`}
+    return this.http.get(this.base_url+'/invitaciones/invitado/invitaciones',{headers});
+  
+  }
+
+  updateEstadoInvitacion(body:UpdateEstadoInvitacionDTO):Observable<any>{
+
+    const token =this.localstorage._getDataLocalStorege('access_token') 
+    var headers= {authorization:`Yuno ${token}`}
+    return this.http.put(this.base_url+'/invitaciones/',body,{headers});
+  
+  }
   f_get():Observable<any>{
 
     return this.http.get(this.base_url+'/get')

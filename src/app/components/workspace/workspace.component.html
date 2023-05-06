@@ -10,7 +10,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-                <a class="nav-link">
+                <a class="nav-link" (click)="inicializarPreview()">
                   <i class="fas fa-light fa-play" ></i> Run
                 </a>
               </li>
@@ -63,9 +63,9 @@
       </div>
       <div class="col-md-9 col-lg-10">
         <div class="workspace col py-0 px-9" *ngIf="editingProyecto !== undefined">
-          <div class="editor-container">
+          <div class="editor-container"  ng-enter="inicializarPreview()" >
             <div class="editor-header">HTML</div>
-            <textarea class="editor" [(ngModel)]="editingProyecto.html_text" (ngModelChange)="onChangeCodeHTML()" id="html-editor"></textarea>
+            <textarea class="editor"[(ngModel)]="editingProyecto.html_text" (ngModelChange)="onChangeCodeHTML()" id="html-editor"></textarea>
           </div>
           <div class="editor-container">
             <div class="editor-header">CSS</div>
@@ -75,9 +75,9 @@
             <div class="editor-header">JavaScript</div>
             <textarea class="editor" [(ngModel)]="editingProyecto.js_text" (ngModelChange)="onChangeCodeJS()"  id="js-editor"></textarea>
           </div>
-          <div class="preview-container">
+          <div class="preview-container"  >
             <div class="editor-header">Preview</div>
-            <iframe class="preview" id="preview" ></iframe>
+            <iframe (onload)="inicializarPreview()" class="preview" id="preview" ></iframe>
           </div>
         </div>   
       </div>

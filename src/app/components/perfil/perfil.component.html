@@ -94,11 +94,11 @@
               <div class="sidebar-footer">
                 <div  id="nuevoProyecto-btn" class="d-flex align-items-center text-white text-decoration-none">
                  <div  *ngIf="verProyectos">
-                  <img (click)="openNewProyectoModal()" src="assets/img/añadir.png" alt="hugenerd" width="45" height="45">
+                  <img (click)="openNewProyectoModal()" src="assets/img/anadir.png" alt="hugenerd" width="45" height="45">
                   <span class="d-none d-sm-inline mx-1">Añadir nuevo proyecto.</span>
                  </div>
                  <div  *ngIf="verMisInvitaciones">
-                  <img (click)="openNewProyectoModal()" src="assets/img/añadir.png" alt="hugenerd" width="45" height="45">
+                  <img (click)="openNewInvitacionModal()" src="assets/img/anadir.png" alt="hugenerd" width="45" height="45">
                   <span class="d-none d-sm-inline mx-1">Añadir nueva Invitacion</span>
                  </div>
                 </div>
@@ -115,6 +115,25 @@
   </div>
 </div>
 
+<div class="projects" *ngIf="verMisInvitaciones" >
+  <div class="project-card" *ngFor="let invitacion of misInvitacionesList">
+    <h3>Nombre del Proywcto: {{getName(invitacion)}}</h3>
+    <h4>Invitado: {{invitacion.invitado}}</h4>
+    <p>Estado: {{invitacion.estado}}</p>
+    <button *ngIf="invitacion.estado != 'cancelada'" (click)="updateEstadoInvitacion(invitacion._id,'cancelada')">Cancelar</button>
+  </div>
+</div>
+
+<div class="projects" *ngIf="verInvitacionesProyectos" >
+  <div class="project-card" *ngFor="let invitacion of invitacionesProyectosList">
+    <h3>Nombre del Proywcto: {{getName(invitacion)}}</h3>
+    <h4>Invitado: {{invitacion.invitado}}</h4>
+    <p>Estado: {{invitacion.estado}}</p>
+    <button *ngIf="invitacion.estado == 'aceptada'" (click)="goToScriptProyecto(invitacion.proyecto)">Go</button>
+    <button *ngIf="invitacion.estado == 'espera'" (click)="updateEstadoInvitacion(invitacion._id,'aceptada')">Aceptar</button>
+    <button *ngIf="invitacion.estado == 'espera'" (click)="updateEstadoInvitacion(invitacion._id,'rechazada')">Rechazar</button>
+  </div>
+</div>
           </div>      
     </div>
 </div>
@@ -135,6 +154,31 @@
       </div>
 
       <button type="submit">Crear</button>
+    </form>
+  </div>
+  
+</ng-template>
+
+<!-- Modal -->
+<ng-template #newInvitacionModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title font-weight-bolder " >Nueva Invitacion</h4>
+    <button type="button" class="close btn" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <form #newInvitacionForm="ngForm" (ngSubmit)="onSubmitNewInvitacion(newInvitacionForm)">
+      <div class="form-group">
+        <input placeholder="Email@colaborador" type="email" id="invitado" name="invitado" ngModel required #invitado="ngModel">
+      </div>
+      <div class="form-group">
+        <select id="proyecto" name="proyecto" ngModel required #proyecto="ngModel" >
+          <option *ngFor="let proyecto of proyectosList" [value]="proyecto._id" >{{proyecto.name}}</option>
+        </select>
+      </div>
+      <button type="submit">Enviar</button>
     </form>
   </div>
   

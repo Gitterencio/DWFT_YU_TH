@@ -28,14 +28,14 @@ export class WorkspaceComponent {
   <html lang="en">
     <head>
       <style>
-     
+        ${this.editingProyecto?.css_text}
       </style>
     </head>
     <body>
+    ${this.editingProyecto?.html_text}
       <script>
-        
+        ${this.editingProyecto?.js_text}
       </script>
-    
     </body>
   </html>
 
@@ -107,7 +107,9 @@ export class WorkspaceComponent {
   }
 
   inicializarPreview(){
-    document.getElementById('preview')?.setAttribute('srcdoc',this.preview);
+    
+  this.onChangeCode();
+   document.getElementById('preview')?.setAttribute('srcdoc',this.preview);
   }
 
   onChangeCodeHTML(){
@@ -144,8 +146,7 @@ export class WorkspaceComponent {
     </html>
   
     `
-    //rendirizar
-    document.getElementById('preview')?.setAttribute('srcdoc',this.preview);
+   
     //guardado local
     this._localstorage._setDataLocalStorege('editingProyecto',this.editingProyecto)
   }
