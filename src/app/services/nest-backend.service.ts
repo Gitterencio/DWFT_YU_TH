@@ -11,7 +11,7 @@ export class NestBackendService {
   devURL:string = `http://${this.hostname}:3000`;
   productURL:string = `https://dwbkyuth-production.up.railway.app`;
 
-  base_url:string= this.productURL;
+  base_url:string= this.devURL;
 
   constructor(private http:HttpClient) { }
 
