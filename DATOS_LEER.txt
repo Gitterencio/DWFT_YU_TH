@@ -19,3 +19,8 @@ ng g s services/localStorage
 
 SOCKET CLIENT
 npm i socket.io-client
+
+firebase init
+
+npm run build
+firebase deploy
