@@ -17,6 +17,7 @@ import { TestComponent } from './components/test/test.component';
 import {HttpClientModule} from '@angular/common/http';
 //FORMULARIO REACTIVO
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { NavwsComponent } from './components/navws/navws.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms';
     SignUpComponent,
     PerfilComponent,
     WorkspaceComponent,
-    TestComponent
+    TestComponent,
+    NavwsComponent
   ],
   imports: [
     BrowserModule,
