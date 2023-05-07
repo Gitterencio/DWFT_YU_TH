@@ -18,7 +18,8 @@ export class WorkspaceComponent {
     private _router: Router, 
     private _localstorage: LocalStorageService) { }
 
-
+  
+  proyectoId:string|boolean =false
   editingProyecto?:Proyectos
 
   //this._localstorage._setLocalStorege('editingProyecto',id)
@@ -43,13 +44,31 @@ export class WorkspaceComponent {
 
 
   ngOnInit(): void {
+    this.goJoinRoomProject();
     this.getEditingProyecto();
-    this.inicializarPreview();
+    this.OnJoinedRoomProject();
+
+    this.OnActualEditingProject();
+    this.OnHTMLEdited();
+    this.OnCSSEdited();
+    this.OnJSEdited();
+
+  }
+
+  goJoinRoomProject(){
+     this.proyectoId = this._localstorage._getStringLocalStorege('proyectoId')
+    if(!this.proyectoId){
+      this._router.navigate(['perfil'])
+    }else{
+      this._socket.joinRoomProject(this.proyectoId);
+    }
+  
+   
   }
 
   getEditingProyecto(){
-    const proyectoId = this._localstorage._getStringLocalStorege('proyectoId')
-    if(!proyectoId){
+    
+    if(!this.proyectoId){
       this._router.navigate(['perfil'])
     }
 
@@ -68,7 +87,7 @@ export class WorkspaceComponent {
     }
 
     else{
-      if (this.editingProyecto._id != proyectoId){
+      if (this.editingProyecto._id != this.proyectoId){
         this.saveEditingProyecto();
         this._localstorage._removeLocalStorege('editingProyecto')
         this.getEditingProyecto();
@@ -115,18 +134,58 @@ export class WorkspaceComponent {
   onChangeCodeHTML(){
     console.log('html')
     this.onChangeCode();
+    
+    if(this.proyectoId && this.editingProyecto?.html_text && typeof(this.proyectoId)== 'string'){
+      this._socket.goEditHTMLProject(this.proyectoId,this.editingProyecto.html_text)
+     }
+  }
+  OnHTMLEdited(){
+    this._socket.socketHTMLEdited.subscribe(html =>{
+
+      if(this.editingProyecto){
+        this.editingProyecto.html_text = html
+        this.onChangeCode();
+      }
+    });
   }
 
   onChangeCodeJS(){
     console.log('js')
     this.onChangeCode();
+    
+    if(this.proyectoId && this.editingProyecto?.js_text && typeof(this.proyectoId)== 'string'){
+      this._socket.goEditJSProject(this.proyectoId,this.editingProyecto.js_text)
+     }
   }
 
+  OnJSEdited(){
+    this._socket.socketJSEdited.subscribe(js =>{
+
+      if(this.editingProyecto){
+        this.editingProyecto.js_text = js
+        this.onChangeCode();
+      }
+    });
+  }
 
   onChangeCodeCSS(){
     console.log('css')
     this.onChangeCode();
+    if(this.proyectoId && this.editingProyecto?.css_text && typeof(this.proyectoId)== 'string'){
+      this._socket.goEditCSSProject(this.proyectoId,this.editingProyecto.css_text)
+     }
   }
+
+  OnCSSEdited(){
+    this._socket.socketCSSEdited.subscribe(css =>{
+
+      if(this.editingProyecto){
+        this.editingProyecto.css_text = css
+        this.onChangeCode();
+      }
+    });
+  }
+
 
   onChangeCode(){
     this.preview =`
@@ -146,11 +205,33 @@ export class WorkspaceComponent {
     </html>
   
     `
-   
     //guardado local
     this._localstorage._setDataLocalStorege('editingProyecto',this.editingProyecto)
   }
   
+
+
+  //ROOM SOCKET
+  OnJoinedRoomProject(){
+    this._socket.socketJoinedRoomProject.subscribe(res =>{
+       
+       console.log(res) 
+        const localProyect = this._localstorage._getDataLocalStorege('editingProyecto')
+        if(this.proyectoId && localProyect && typeof(this.proyectoId)== 'string'){
+        this._socket.goActualEditingProject(this.proyectoId,localProyect)
+       }
+      });
+    
+    }
+    OnActualEditingProject(){
+      this._socket.socketActualEditingProject.subscribe(res =>{
+      this._localstorage._setDataLocalStorege('editingProyecto',res)
+      this.getEditingProyecto();
+      // this.inicializarPreview();
+      
+      })
+    }
+
   signOut(){
  
     this._localstorage._clearLocalStorege()

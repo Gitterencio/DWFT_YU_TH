@@ -59,7 +59,7 @@ export class TestComponent {
     };
 
     onSocketResponse(){
-      this._socket.socketResponse.subscribe(res =>{
+      this._socket.socketJoinedRoomProject.subscribe(res =>{
         console.log(res)
       });
     }
