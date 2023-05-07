@@ -23,7 +23,7 @@ export class SocketWebServerService {
   devURL:string = `http://${this.hostname}:3000`;
   productURL:string = `https://dwbkyuth-production.up.railway.app`;
 
-  server_url:string= this.devURL;
+  server_url:string= this.productURL;
 
   io = io(this.server_url,{
     withCredentials:true,
