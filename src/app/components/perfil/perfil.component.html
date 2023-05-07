@@ -126,7 +126,7 @@
 
 <div class="projects" *ngIf="verInvitacionesProyectos" >
   <div class="project-card" *ngFor="let invitacion of invitacionesProyectosList">
-    <h3>Nombre del Proywcto: {{getName(invitacion)}}</h3>
+    <h3>Nombre del Proyecto: {{getName(invitacion)}}</h3>
     <h4>Invitado: {{invitacion.invitado}}</h4>
     <p>Estado: {{invitacion.estado}}</p>
     <button *ngIf="invitacion.estado == 'aceptada'" (click)="goToScriptProyecto(invitacion.proyecto)">Go</button>
