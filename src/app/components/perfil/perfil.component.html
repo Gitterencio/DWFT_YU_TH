@@ -110,7 +110,7 @@
 <div class="projects" *ngIf="verProyectos" >
   <div class="project-card" *ngFor="let proyecto of proyectosList">
     <h3>{{proyecto.name}}</h3>
-    <p>Descripción del proyecto 1.</p>
+    <p>{{proyecto.descripcion}}</p>
     <button (click)="goToScriptProyecto(proyecto._id)">Go</button>
   </div>
 </div>
@@ -151,6 +151,7 @@
     <form #newProyectoForm="ngForm" (ngSubmit)="onSubmitNewProyecto(newProyectoForm)">
       <div class="form-group">
         <input placeholder="Nombre del proyecto" type="text" id="name" name="name" ngModel required #name="ngModel">
+        <input placeholder="Descripcion" type="text" id="descripcion" name="descripcion" ngModel  #descripcion="ngModel">
       </div>
 
       <button type="submit">Crear</button>

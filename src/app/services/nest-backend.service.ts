@@ -5,7 +5,7 @@ import { Observable} from 'rxjs';
 
 import { LocalStorageService } from './local-storage.service';
 import { CreateUserDTO, LoginEmailUserDTO } from 'dw-data-types/dto/users.dto';
-import { UpdateProyectoDTO} from 'dw-data-types/dto/proyectos.dto';
+import { CreateProyectoDTO, UpdateProyectoDTO} from 'dw-data-types/dto/proyectos.dto';
 import {CreateInvitacionDTO, UpdateEstadoInvitacionDTO} from 'dw-data-types/dto/invitaciones.dto';
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class NestBackendService {
   devURL:string = `http://${this.hostname}:3000`;
   productURL:string = `https://dwbkyuth-production.up.railway.app`;
 
-  base_url:string= this.productURL;
+  base_url:string= this.devURL;
 
   constructor(private http:HttpClient,
     private localstorage: LocalStorageService) { }
@@ -35,7 +35,7 @@ export class NestBackendService {
   }
 
   //PROYECTO
-  createNewProyecto(body:{name:string}):Observable<any>{
+  createNewProyecto(body:CreateProyectoDTO):Observable<any>{
 
     const token =this.localstorage._getDataLocalStorege('access_token') 
     var headers= {authorization:`Yuno ${token}`}

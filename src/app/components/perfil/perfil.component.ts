@@ -119,6 +119,7 @@ export class PerfilComponent {
       console.log(data.message)
       
       this.proyectosList = data.proyectos
+    
       
 
     },err => {
