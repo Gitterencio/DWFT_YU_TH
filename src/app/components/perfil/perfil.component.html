@@ -117,7 +117,7 @@
 
 <div class="projects" *ngIf="verMisInvitaciones" >
   <div class="project-card" *ngFor="let invitacion of misInvitacionesList">
-    <h3>Nombre del Proywcto: {{getName(invitacion)}}</h3>
+    <h3>Nombre del Proyecto: {{getName(invitacion)}}</h3>
     <h4>Invitado: {{invitacion.invitado}}</h4>
     <p>Estado: {{invitacion.estado}}</p>
     <button *ngIf="invitacion.estado != 'cancelada'" (click)="updateEstadoInvitacion(invitacion._id,'cancelada')">Cancelar</button>
